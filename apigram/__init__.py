@@ -1,4 +1,4 @@
-from connection import *
+from .connection import *
 
 
 __author__ = 'andprokofieff'
