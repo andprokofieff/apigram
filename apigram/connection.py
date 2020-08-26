@@ -4,9 +4,9 @@ import json
 import six
 
 class session(object):
-    def __init__(self, token = None):
+    def __init__(self, token:str):
         """
-        Инициализация бота.
+        Initialize Bot's working. Token you can take via creating bot's page at BotFather: t.me/BotFather
         """
         self.token = token
 
@@ -24,7 +24,7 @@ class session(object):
 
     def method(self, method='getMe', values=None):
         """
-        Вызываем метод, см. https://core.telegram.org/bots/api#available-methods
+        Use method with parameters. Manual: https://core.telegram.org/bots/api#available-methods
         """
         params = values.copy() if values else {}
         
@@ -41,6 +41,9 @@ class session(object):
                 quit()
 
     def check(self):
+        """
+        Get updates one time
+        """
         response = self.method('GetUpdates', {'offset': self.update_id + 1})
 
         for event in response or []:
@@ -48,11 +51,18 @@ class session(object):
             yield event
 
     def listen(self):
+        """
+        Get updates until broke
+        """
         while True:
             for event in self.check():
                 yield event
         
 class get_api():
+    """
+    Simpler access to Telegram Bot Api methods
+    """
+    
     __slots__ = ('_bot', '_method')
     def __init__(self, bot, method=None):
         self._bot = bot
