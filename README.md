@@ -2,7 +2,7 @@
 **Apigram** – Python Telegram Bot API wrapper
 
 * [Examples](/examples) (python3)
-* [Telegram Bot API Manual](https://core.telegram.org/bots/api)
+* [Official Telegram Bot API Manual](https://core.telegram.org/bots/api)
 
 ```python
 import apigram
