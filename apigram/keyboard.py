@@ -2,11 +2,7 @@ import json
 
 
 class inline_keyboard_button():
-    """
-    The button for a keyboard inside a message. Manual: https://core.telegram.org/bots/api#inlinekeyboardmarkup
-    """
-
-
+    """ The button for a keyboard inside a message. Manual: https://core.telegram.org/bots/api#inlinekeyboardmarkup """
     def __init__(self, text: str, url = None, login_url = None, callback_data = None, switch_inline_query = None, switch_inline_query_current_chat = None, callback_game = None, pay = None):
         self.text = text
         
@@ -34,11 +30,7 @@ class inline_keyboard_button():
 
 
 class reply_keyboard_button():
-    """
-    The button for a keyboard under user input. Manual: https://core.telegram.org/bots/api#keyboardbutton
-    """
-
-
+    """ The button for a keyboard under user input. Manual: https://core.telegram.org/bots/api#keyboardbutton """
     def __init__(self, text: str, request_contact = False, request_location = False, request_poll = None):
         self.text = text
         
@@ -56,11 +48,7 @@ class reply_keyboard_button():
         return self.__dict__
 
 class inline_keyboard():
-    """
-    The keyboard inside a message. Manual: https://core.telegram.org/bots/api#inlinekeyboardbutton
-    """
-
-
+    """ The keyboard inside a message. Manual: https://core.telegram.org/bots/api#inlinekeyboardbutton """
     def __init__(self, lines = 1):
         self.buttons = [[]]
 
@@ -85,11 +73,7 @@ class inline_keyboard():
         self.buttons.append([])
 
 class reply_keyboard():
-    """
-    The kayboard under a user input. Manual: https://core.telegram.org/bots/api#replykeyboardbutton
-    """
-
-
+    """ The keyboard under a user input. Manual: https://core.telegram.org/bots/api#replykeyboardbutton """
     def __init__(self, lines:int = 1, resize_keyboard:bool = False, one_time_keyboard:bool = False, selective:bool = False):
         self.buttons = [[]]
         self.resize_keyboard = resize_keyboard
@@ -120,9 +104,7 @@ class reply_keyboard():
 
 
 class reply_keyboard_remove():
-    """
-    Send apigram.keyboard.reply_keyboard_remove(), to destroy reply_keyboard. Manual: https://core.telegram.org/bots/api#replykeyboardremove
-    """
+    """ Send apigram.keyboard.reply_keyboard_remove(), to destroy reply_keyboard. Manual: https://core.telegram.org/bots/api#replykeyboardremove """
     def __init__(self, selective:bool = False):
         self.selective = selective
 
