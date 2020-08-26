@@ -3,7 +3,7 @@ import json
 
 class inline_keyboard_button():
     """
-    Объявление клавиши для клавиатуры: https://core.telegram.org/bots/api#inlinekeyboardmarkup
+    The button for a keyboard inside a message. Manual: https://core.telegram.org/bots/api#inlinekeyboardmarkup
     """
 
 
@@ -35,7 +35,7 @@ class inline_keyboard_button():
 
 class reply_keyboard_button():
     """
-    Объявление клавиши для клавиатуры: https://core.telegram.org/bots/api#keyboardbutton
+    The button for a keyboard under user input. Manual: https://core.telegram.org/bots/api#keyboardbutton
     """
 
 
@@ -57,7 +57,7 @@ class reply_keyboard_button():
 
 class inline_keyboard():
     """
-    Объявление клавиатуры, см. https://core.telegram.org/bots/api#inlinekeyboardbutton
+    The keyboard inside a message. Manual: https://core.telegram.org/bots/api#inlinekeyboardbutton
     """
 
 
@@ -86,7 +86,7 @@ class inline_keyboard():
 
 class reply_keyboard():
     """
-    Объявление клавиатуры, см. https://core.telegram.org/bots/api#replykeyboardbutton
+    The kayboard under a user input. Manual: https://core.telegram.org/bots/api#replykeyboardbutton
     """
 
 
@@ -121,7 +121,7 @@ class reply_keyboard():
 
 class reply_keyboard_remove():
     """
-    Отправьте keyboard.reply_keyboard_remove(), чтобы убрать клавиатуру, см. https://core.telegram.org/bots/api#replykeyboardremove
+    Send apigram.keyboard.reply_keyboard_remove(), to destroy reply_keyboard. Manual: https://core.telegram.org/bots/api#replykeyboardremove
     """
     def __init__(self, selective:bool = False):
         self.selective = selective
@@ -134,10 +134,3 @@ class reply_keyboard_remove():
                 'selective': self.selective
             }
         )
-
-if __name__ == "__main__":
-    keyboard = inline_keyboard()
-    keyboard.add_button(inline_keyboard_button('test')())
-
-
-    print(keyboard.get())
