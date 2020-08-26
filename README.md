@@ -4,7 +4,7 @@
 * [Examples](./examples) (python3)
 * [Telegram Bot API Manual](https://core.telegram.org/bots/api)
 
-* [My telegram channel](https://core.telegram.org/bots/api) [RU]
+* [My telegram channel](https://t.me/prokofieffchannel) [RU]
 
 ```python
 import apigram
