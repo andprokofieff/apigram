@@ -13,6 +13,6 @@ api = apigram.get_api(bot)
 print(api.getMe())
 ```
 
-Установка
+Installing
 ------------
     $ pip install apigram
