@@ -1,6 +1,6 @@
 import apigram
 
-#token already invalid, bro :^)
+#token is already invalid, bro :^)
 token = '1361020830:AAEqj3jxeJkIjgG9CSJbs7LkBeqdbhs3u6g'
 
 bot = apigram.session(token)
