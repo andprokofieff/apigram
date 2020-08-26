@@ -5,27 +5,23 @@ import six
 
 class session(object):
     def __init__(self, token:str):
-        """
-        Initialize Bot's working. Token you can take via creating bot's page at BotFather: t.me/BotFather
-        """
+        """ Initialize Bot's working. Token you can take via creating bot's page at BotFather: t.me/BotFather """
         self.token = token
-
         self.lock = threading.Lock()
         self.http = requests.session()
-        self.http.headers.update({
-                        'User-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36"
-                        })
+        self.http.headers.update({'User-agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36"})
         
-        self.update_id = 0
         res = self.method()
+        
         self.id = res['id']
         self.username = res['username']
+        self.name = res['first_name']
+        self.update_id = 0
+        
         print(f"@{self.username} launched!")
 
     def method(self, method='getMe', values=None):
-        """
-        Use method with parameters. Manual: https://core.telegram.org/bots/api#available-methods
-        """
+        """ Use method with parameters. Manual: https://core.telegram.org/bots/api#available-methods """
         params = values.copy() if values else {}
         
         with self.lock:
@@ -34,34 +30,28 @@ class session(object):
 
         if response.ok:
             response = response.json()
+            
             if response['ok']:
                 return response['result']
+            
             else:
                 print('[{error_code}] {description}'.format(response))
                 quit()
 
     def check(self):
-        """
-        Get updates one time
-        """
-        response = self.method('GetUpdates', {'offset': self.update_id + 1})
-
-        for event in response or []:
+        """ Get updates one time """
+        for event in self.method('GetUpdates', {'offset': self.update_id + 1}) or []:
             self.update_id = event['update_id']
             yield event
 
     def listen(self):
-        """
-        Get updates until broke
-        """
+        """ Get updates until broke """
         while True:
             for event in self.check():
                 yield event
         
 class get_api():
-    """
-    Simpler access to Telegram Bot Api methods
-    """
+    """ Simplest access to Telegram Bot Api methods. ``api.*method*(kwargs)`` """
     
     __slots__ = ('_bot', '_method')
     def __init__(self, bot, method=None):
