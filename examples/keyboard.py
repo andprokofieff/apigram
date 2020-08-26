@@ -1,9 +1,6 @@
 import apigram
 
-#token is already invalid, bro :^)
-token = '1361020830:AAEqj3jxeJkIjgG9CSJbs7LkBeqdbhs3u6g'
-
-bot = apigram.session(token)
+bot = apigram.session('123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11')
 api = apigram.get_api(bot)
 
 #bot is follow for all updates at server
