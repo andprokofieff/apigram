@@ -9,8 +9,8 @@
 ```python
 import apigram
 
-bot = apigram.session('123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11')
-api = apigram.get_api(bot)
+bot = apigram.session('1239943371:AAGGKzflDmOO6DBTWzOsfB9t6GpiiR9QBJg')
+api = apigram.get_api(https://core.telegram.org/bots/api)
 
 print(api.getMe())
 ```
